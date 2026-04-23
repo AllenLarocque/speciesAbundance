@@ -135,7 +135,7 @@ appendRaster <- function(allAbundanceRasters, newRaster){
 saveAbundRasters <- function(allAbundanceRasters, savingName, savingFolder){
   terra::writeRaster(x = allAbundanceRasters,
                      filetype = "GTiff",
-                     filename = file.path(savingFolder, paste0(savingName, "_abundance.tif")), 
+                     filename = file.plath(savingFolder, paste0(savingName, "_abundance.tif")), 
                      overwrite = TRUE)
   message(paste0("All rasters saved to: \n", 
                  file.path(savingFolder, paste0(savingName, ".tif"))))
