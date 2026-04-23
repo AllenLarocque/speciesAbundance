@@ -78,7 +78,7 @@ doEvent.speciesAbundance = function(sim, eventTime, eventType) {
       sim$abundaRas <- convertToRaster(dataSet = sim$abund, 
                                        currentTime = time(sim),
                                        nameRaster = paste0(P(sim)$areaName, ": ", time(sim)))
-      sim$allAbundaRas <- appendRaster(allAbundanceRasters = sim$allAbundaRas, 
+      sim$allAbundaRas <- appendRasterz(allAbundanceRasters = sim$allAbundaRas, 
                                        newRaster = sim$abundaRas)
       
       # schedule future event(s)
@@ -135,7 +135,7 @@ appendRaster <- function(allAbundanceRasters, newRaster){
 saveAbundRasters <- function(allAbundanceRasters, savingName, savingFolder){
   terra::writeRaster(x = allAbundanceRasters,
                      filetype = "GTiff",
-                     filename = file.plath(savingFolder, paste0(savingName, "_abundance.tif")), 
+                     filename = file.path(savingFolder, paste0(savingName, "_abundance.tif")), 
                      overwrite = TRUE)
   message(paste0("All rasters saved to: \n", 
                  file.path(savingFolder, paste0(savingName, ".tif"))))
